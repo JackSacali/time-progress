@@ -1,0 +1,15 @@
+<ion-item *ngIf="timePeriod" [routerLink]="'/time-period-progress/' + timePeriod.id" [detail]="false">
+  <div slot="start" [class]="!timePeriod.color ? 'dot dot-unread' : 'dot'"></div>
+  <ion-label class="ion-text-wrap">
+    <h2>
+      {{ timePeriod.title }}
+      <span class="date">
+        <ion-note>{{ timePeriod.startDate }}</ion-note>
+        <!-- <ion-icon name="chevron-forward" size="small" *ngIf="isIos()"></ion-icon> -->
+      </span>
+    </h2>
+    <h3>{{ timePeriod.endDate }}</h3>
+    <ion-progress-bar [value]="getProgress()" color="secondary"></ion-progress-bar>
+  </ion-label>
+  <ion-reorder slot="end"></ion-reorder>
+</ion-item>

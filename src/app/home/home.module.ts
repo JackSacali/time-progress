@@ -5,16 +5,16 @@ import { FormsModule } from '@angular/forms';
 
 import { HomePage } from './home.page';
 import { HomePageRoutingModule } from './home-routing.module';
-import { MessageComponentModule } from '../message/message.module';
+import { TimePeriodModule } from '../time-period/time-period.module';
 
 @NgModule({
   imports: [
     CommonModule,
     FormsModule,
     IonicModule,
-    MessageComponentModule,
-    HomePageRoutingModule
+    HomePageRoutingModule,
+    TimePeriodModule,
   ],
   declarations: [HomePage]
 })
-export class HomePageModule {}
+export class HomePageModule { }
