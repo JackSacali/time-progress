@@ -1,0 +1,6 @@
+{
+	"appId": "io.ionic.starter",
+	"appName": "Time progress",
+	"webDir": "www",
+	"bundledWebRuntime": false
+}
