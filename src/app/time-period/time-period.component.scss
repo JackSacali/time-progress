@@ -1,6 +1,7 @@
 ion-item {
   --padding-start: 0;
   --inner-padding-end: 0;
+  margin: 24px;
 }
 
 ion-label {
@@ -60,4 +61,10 @@ ion-footer ion-title {
 
 ion-progress-bar {
  height: 10px;
+}
+
+.time {
+  display: flex;
+  justify-content: space-between;
+  margin-top: 5px;
 }

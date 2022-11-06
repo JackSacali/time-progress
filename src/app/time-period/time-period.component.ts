@@ -8,24 +8,26 @@ import { TimePeriod } from '../services/data.service';
 })
 export class TimePeriodComponent implements OnInit {
   @Input() timePeriod: TimePeriod;
+  progressPercentage = 0;
 
   constructor() { }
 
-  ngOnInit() {}
+  ngOnInit() {
+    this.progressPercentage = this.timePeriod
+      ? this.getProgress(this.timePeriod.startDate, this.timePeriod.endDate)
+      : 0;
+  }
 
   isIos() {
     const win = window as any;
     return win && win.Ionic && win.Ionic.mode === 'ios';
   }
 
-  getProgress(): number {
+  getProgress(start: Date, end: Date): number {
     const now = new Date().getTime();
-    const {startDate, endDate} = this.timePeriod;
-    const totalValue = endDate.getTime() - startDate.getTime();
-    const partialValue = now - startDate.getTime();
+    const totalPeriod = end.getTime() - start.getTime();
+    const passedPeriod = now - start.getTime();
 
-    console.log("🚀 ~ file: time-period.component.ts ~ line 28 ~ TimePeriodComponent ~ getProgress ~ (100 * partialValue) / totalValue", (100 * partialValue) / totalValue)
-    return (partialValue) / totalValue;
-
+    return +(passedPeriod / totalPeriod).toFixed(4);
   }
 }

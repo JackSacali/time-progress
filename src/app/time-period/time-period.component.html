@@ -1,15 +1,22 @@
-<ion-item *ngIf="timePeriod" [routerLink]="'/time-period-progress/' + timePeriod.id" [detail]="false">
-  <div slot="start" [class]="!timePeriod.color ? 'dot dot-unread' : 'dot'"></div>
-  <ion-label class="ion-text-wrap">
-    <h2>
-      {{ timePeriod.title }}
-      <span class="date">
-        <ion-note>{{ timePeriod.startDate }}</ion-note>
-        <!-- <ion-icon name="chevron-forward" size="small" *ngIf="isIos()"></ion-icon> -->
-      </span>
-    </h2>
-    <h3>{{ timePeriod.endDate }}</h3>
-    <ion-progress-bar [value]="getProgress()" color="secondary"></ion-progress-bar>
-  </ion-label>
-  <ion-reorder slot="end"></ion-reorder>
-</ion-item>
+<!-- <ion-item *ngIf="timePeriod" [routerLink]="'/time-period-progress/' + timePeriod.id" [detail]="false"> -->
+<!-- <ion-card color="{{timePeriod.color}}" *ngIf="timePeriod" [routerLink]="'/time-period-progress/' + timePeriod.id"> -->
+<ion-card *ngIf="timePeriod" color="{{timePeriod.color}}">
+  <ion-card-header>
+    <ion-card-title>{{ timePeriod.title }}</ion-card-title>
+    <ion-card-subtitle>{{(progressPercentage * 100).toFixed(2) + ' %'}}</ion-card-subtitle>
+  </ion-card-header>
+
+  <ion-card-content>
+    <ion-progress-bar [value]="progressPercentage" color="light"></ion-progress-bar>
+    <div class="time">
+      <ion-chip>{{ timePeriod.startDate | date }}</ion-chip>
+      <ion-chip>{{ timePeriod.endDate | date }}</ion-chip>
+    </div>
+  </ion-card-content>
+</ion-card>
+<!-- <ion-reorder slot="end"></ion-reorder> -->
+
+
+
+
+<!-- </ion-item> -->

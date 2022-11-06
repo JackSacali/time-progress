@@ -18,12 +18,14 @@ export interface Message {
   read: boolean;
 }
 
+type Color = 'danger' | 'dark' | 'light' | 'medium' | 'primary' | 'secondary' | 'success' | 'tertiary' | 'warning';
+
 export interface TimePeriod {
   id: number;
   startDate: Date;
   endDate: Date;
   title: string;
-  color: string;
+  color: Color;
   notify: boolean;
 }
 
@@ -96,7 +98,7 @@ export class DataService {
       startDate: this.getTodayStart(),
       endDate: this.getTodayEnd(),
       title: 'Today',
-      color: 'string;',
+      color: 'primary',
       notify: false,
     },
     {
@@ -104,7 +106,7 @@ export class DataService {
       startDate: this.getWeekStart(1),
       endDate: this.getWeekEnd(1),
       title: 'This week',
-      color: 'string;',
+      color: 'medium',
       notify: false,
     },
     {
@@ -112,7 +114,7 @@ export class DataService {
       startDate: this.getMonthStart(),
       endDate: this.getMonthEnd(),
       title: 'This month',
-      color: 'string;',
+      color: 'tertiary',
       notify: false,
     },
     {
@@ -120,7 +122,7 @@ export class DataService {
       startDate: this.getQuarterStart(),
       endDate: this.getQuarterEnd(),
       title: 'This quarter',
-      color: 'string;',
+      color: 'success',
       notify: false,
     },
     {
@@ -128,7 +130,7 @@ export class DataService {
       startDate: this.getYearStart(),
       endDate: this.getYearEnd(),
       title: 'This year',
-      color: 'string;',
+      color: 'warning',
       notify: false,
     },
   ];
