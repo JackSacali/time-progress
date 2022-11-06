@@ -133,22 +133,6 @@ export class DataService {
       color: 'warning',
       notify: false,
     },
-    {
-      id: 4,
-      startDate: this.getQuarterStart(),
-      endDate: this.getQuarterEnd(),
-      title: 'This quarter',
-      color: 'success',
-      notify: false,
-    },
-    {
-      id: 5,
-      startDate: this.getYearStart(),
-      endDate: this.getYearEnd(),
-      title: 'This year',
-      color: 'warning',
-      notify: false,
-    },
   ];
 
   constructor() { }
