@@ -1,8 +1,22 @@
-<ion-header [translucent]="true">
+<ion-header *ngIf="isIos()" [translucent]="true">
   <ion-toolbar>
     <ion-title>
-      Progress
+      Time progress
     </ion-title>
+  </ion-toolbar>
+</ion-header>
+
+<ion-header *ngIf="!isIos()" [translucent]="true">
+  <ion-toolbar>
+    <ion-buttons slot="start">
+      <ion-menu-button auto-hide="false"></ion-menu-button>
+    </ion-buttons>
+    <ion-title>Time progress</ion-title>
+    <ion-buttons slot="primary">
+      <ion-button fill="solid">
+        <ion-icon slot="end" name="add-circle-outline"></ion-icon>
+      </ion-button>
+    </ion-buttons>
   </ion-toolbar>
 </ion-header>
 
@@ -11,11 +25,17 @@
     <ion-refresher-content></ion-refresher-content>
   </ion-refresher>
 
-  <ion-header collapse="condense">
+  <ion-header collapse="condense" [translucent]="true">
     <ion-toolbar>
-      <ion-title size="large">
-        Progress
-      </ion-title>
+      <ion-buttons slot="start">
+        <ion-menu-button auto-hide="false"></ion-menu-button>
+      </ion-buttons>
+      <ion-title>Time progress</ion-title>
+      <ion-buttons slot="primary">
+        <ion-button fill="solid">
+          <ion-icon slot="end" name="add-circle-outline"></ion-icon>
+        </ion-button>
+      </ion-buttons>
     </ion-toolbar>
   </ion-header>
 

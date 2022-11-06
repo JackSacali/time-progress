@@ -16,6 +16,11 @@ export class HomePage {
     }, 3000);
   }
 
+  isIos() {
+    const win = window as any;
+    return win && win.Ionic && win.Ionic.mode === 'ios';
+  }
+
   getMessages(): Message[] {
     return this.data.getMessages();
   }
